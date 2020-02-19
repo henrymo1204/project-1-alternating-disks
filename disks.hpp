@@ -95,9 +95,17 @@ public:
   // that the first disk at index 0 is light, the second disk at index 1
   // is dark, and so on for the entire row of disks.
   bool is_alternating() const {
+    disk_color color = LIGHT_DISK;
+    for(int i = 0; i < _colors.size(); i++){
+      if(_colors[i] != color){
+        
     // TODO: Write code for this function, including rewriting the return
     // statement, and then delete these comments.
-    return false;
+      return false;
+      }
+      color = DARK_DISK;
+    }
+    return true;
   }
 
   // Return true when this disk_state is fully sorted, with all light disks
@@ -141,10 +149,10 @@ sorted_disks sort_left_to_right(const disk_state& before) {
   // statement, and then delete these comments.
 
   for(int i = 0; i < _colors.size() - 1; i++){
-    if(_color[i] != _color[i+1]){
-       for(int j = i+1; j < _color.size() - 1; i++){
-          if(_color[j] != _color[j+1]){
-             swap(_color[j]);
+    if(_colors[i] != _colors[i+1]){
+       for(int j = i+1; j < _colors.size() - 1; i++){
+          if(_colors[j] != _colors[j+1]){
+             swap(_colors[j]);
           }
        }
     }
