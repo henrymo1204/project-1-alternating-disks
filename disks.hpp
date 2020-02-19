@@ -1,12 +1,12 @@
 ///////////////////////////////////////////////////////////////////////////////
 // disks.hpp
 //
-// Definitions for two algorithms that each solve the 
+// Definitions for two algorithms that each solve the
 // alternating disks problem.
 //
-// As provided, this header has four functions marked with 
+// As provided, this header has four functions marked with
 // TODO comments.
-// You need to write in your own implementation of these 
+// You need to write in your own implementation of these
 // functions.
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -149,10 +149,10 @@ sorted_disks sort_left_to_right(const disk_state& before) {
        }
     }
   }
-        
+
   // check that the input is in alternating format
   assert(before.is_alternating());
-  
+
   return sorted_disks(before, 0);
 }
 
