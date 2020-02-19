@@ -140,7 +140,17 @@ sorted_disks sort_left_to_right(const disk_state& before) {
   // TODO: Write code for this function, including rewriting the return
   // statement, and then delete these comments.
 
-  // check that the input is in alternating format  
+  for(int i = 0; i < _colors.size() - 1; i++){
+    if(_color[i] != _color[i+1]){
+       for(int j = i+1; j < _color.size() - 1; i++){
+          if(_color[j] != _color[j+1]){
+             swap(_color[j]);
+          }
+       }
+    }
+  }
+        
+  // check that the input is in alternating format
   assert(before.is_alternating());
   
   return sorted_disks(before, 0);
