@@ -166,8 +166,8 @@ sorted_disks sort_left_to_right(const disk_state& before) {
   // check that the input is in alternating format
   assert(before.is_alternating());
   
-  size_t i = 0;
   disk_state temp = before;
+  size_t i = 0;
   size_t j = 0;
   while(temp.is_index(i)){
     if(!(temp.get(i) ==  temp.get(i+1))){
@@ -178,11 +178,11 @@ sorted_disks sort_left_to_right(const disk_state& before) {
           }
           j++;
        }
+       _swap_count++;
     }
-    i++;
   }
   before = temp;
-
+  
   return sorted_disks(before, 0);
 }
 
