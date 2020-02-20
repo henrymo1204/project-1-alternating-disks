@@ -177,7 +177,7 @@ sorted_disks sort_left_to_right(const disk_state& before) {
     }
     i++;
   }
-
+  before = temp;
   // check that the input is in alternating format
   assert(before.is_alternating());
 
