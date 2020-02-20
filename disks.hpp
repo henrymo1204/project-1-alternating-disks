@@ -173,6 +173,7 @@ sorted_disks sort_left_to_right(const disk_state& before) {
         disk.swap(j);
       }
     }
+    count++;
   }
 
   return sorted_disks(disk_state(disk), count);
