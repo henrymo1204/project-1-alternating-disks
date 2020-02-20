@@ -167,10 +167,10 @@ sorted_disks sort_left_to_right(const disk_state& before) {
   assert(before.is_alternating());
   int count = 0;
   disk_state temp = before;
-  while(!(temp.is_sorted())){
-    for(size_t i = 1; i < temp.total_count() - 1; i++){
-      if(!(temp.get(i) == temp.get(i+1))){
-        temp.swap(i);
+  for(size_t i = 1; i < temp.total_count() - 1; i++){
+    for(size_t j = i; j < temp.total_count() - 1; j++){
+      if(!(temp.get(j) == temp.get(j+1))){
+        temp.swap(j);
       }
     }
     count++;
