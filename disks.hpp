@@ -165,27 +165,27 @@ sorted_disks sort_left_to_right(const disk_state& before) {
 
   // check that the input is in alternating format
   assert(before.is_alternating());
-  
+
   disk_state temp = before;
   size_t i = 0;
   size_t j = 0;
-  while(is_sorted == false){
+  while(std::is_sorted == false){
     do{
       i++;
     }
     while(temp.get(i) == DISK_LIGHT);
     do{
-      if(!(temp.get(i) == temp.get(i+1)){
+      if(!(temp.get(i) == temp.get(i+1))){
         temp.swap(i);
       }
-      i++;   
+      i++;
     }
     while(temp.is_index(i));
     _swap_count++;
-    i = 0;  
+    i = 0;
   }
   before = temp;
-  
+
   return sorted_disks(before, 0);
 }
 
