@@ -162,6 +162,10 @@ public:
 sorted_disks sort_left_to_right(const disk_state& before) {
   // TODO: Write code for this function, including rewriting the return
   // statement, and then delete these comments.
+
+  // check that the input is in alternating format
+  assert(before.is_alternating());
+  
   size_t i = 0;
   disk_state temp = before;
   size_t j = 0;
@@ -178,8 +182,6 @@ sorted_disks sort_left_to_right(const disk_state& before) {
     i++;
   }
   before = temp;
-  // check that the input is in alternating format
-  assert(before.is_alternating());
 
   return sorted_disks(before, 0);
 }
