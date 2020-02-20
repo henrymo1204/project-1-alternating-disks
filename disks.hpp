@@ -168,7 +168,6 @@ sorted_disks sort_left_to_right(const disk_state& before) {
   _swap_count = 0
   disk_state temp = before;
   size_t i = 0;
-  size_t j = 0;
   while(!is_sorted()){
     do{
       i++;
