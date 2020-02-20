@@ -159,14 +159,14 @@ public:
 sorted_disks sort_left_to_right(const disk_state& before) {
   // TODO: Write code for this function, including rewriting the return
   // statement, and then delete these comments.
-  int i = 0;
-  int j = 0;
+  size_t i = 0;
+  size_t j = 0;
   while(before.is_index(i)){
     if(!(before.get(i) ==  before.get(i+1))){
        j = i + 1;
        while(before.is_index(j)){
           if(!(before.get(j) == before.get(j+1))){
-             before.swap(before.get(j));
+             before.swap(j);
           }
           j++;
        }
