@@ -160,13 +160,14 @@ sorted_disks sort_left_to_right(const disk_state& before) {
   // TODO: Write code for this function, including rewriting the return
   // statement, and then delete these comments.
   size_t i = 0;
+  disk_state temp = before;
   size_t j = 0;
-  while(before.is_index(i)){
-    if(!(before.get(i) ==  before.get(i+1))){
+  while(temp.is_index(i)){
+    if(!(temp.get(i) ==  temp.get(i+1))){
        j = i + 1;
-       while(before.is_index(j)){
-          if(!(before.get(j) == before.get(j+1))){
-             disk_state::swap(before.get(j));
+       while(temp.is_index(j)){
+          if(!(temp.get(j) == temp.get(j+1))){
+             temp.swap(j);
           }
           j++;
        }
