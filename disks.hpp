@@ -103,7 +103,12 @@ public:
     // statement, and then delete these comments.
         return false;
       }
-      color = DISK_LIGHT;
+      if(color == DISK_DARK){
+        color = DISK_LIGHT;
+      }
+      else{
+        color = DISK_DARK;
+      }
     }
     return true;
   }
