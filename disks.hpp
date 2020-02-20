@@ -114,7 +114,19 @@ public:
   bool is_sorted() const {
     // TODO: Write code for this function, including rewriting the return
     // statement, and then delete these comments.
-   return false;
+   disk_color color = DISK_LIGHT;
+   for(long i = 0; i < light_count(); i++){
+     if(color != DISK_LIGHT){
+       return false;
+     }
+   }
+   color = DISK_DARK;
+   for(long i = 0; i < dark_count(); i++){
+     if(color != DISK_DARK){
+       return false;
+     }
+   }
+   return true;
   }
 };
 
