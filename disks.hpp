@@ -95,15 +95,15 @@ public:
   // that the first disk at index 0 is light, the second disk at index 1
   // is dark, and so on for the entire row of disks.
   bool is_alternating() const {
-    disk_color color = DISK_LIGHT;
+    disk_color color = DISK_DARK;
     for(size_t i = 0; i < _colors.size(); i++){
-      if(_colors[i] != color){
+      if(_colors[i] == color){
 
     // TODO: Write code for this function, including rewriting the return
     // statement, and then delete these comments.
-      return false;
+        return false;
       }
-      color = DISK_DARK;
+      color = DISK_LIGHT;
     }
     return true;
   }
