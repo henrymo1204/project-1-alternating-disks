@@ -166,7 +166,7 @@ sorted_disks sort_left_to_right(const disk_state& before) {
        j = i + 1;
        while(before.is_index(j)){
           if(!(before.get(j) == before.get(j+1))){
-             before.swap(j);
+             disk_state::swap(before.get(j));
           }
           j++;
        }
