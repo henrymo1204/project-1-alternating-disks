@@ -147,15 +147,19 @@ public:
 sorted_disks sort_left_to_right(const disk_state& before) {
   // TODO: Write code for this function, including rewriting the return
   // statement, and then delete these comments.
-
-  for(long int i = 0; i < before.total_count() - 1; i++){
+  int i = 0;
+  int j = 0;
+  while(before.is_index(i)){
     if(!(before.get(i) ==  before.get(i+1))){
-       for(long int j = i+1; j < before.total_count() - 1; i++){
+       j = i + 1;
+       while(before.is_index(j)){
           if(!(before.get(j) == before.get(j+1))){
           before.swap(j);
           }
+          j++;
        }
     }
+    i++;
   }
 
   // check that the input is in alternating format
