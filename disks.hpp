@@ -124,7 +124,7 @@ public:
        return false;
      }
    }
-   for(size_t i = light_cout(); i < dark_count(); i++){
+   for(size_t i = light_count(); i < dark_count(); i++){
      if(_colors[i] == DISK_LIGHT){
        return false;
      }
