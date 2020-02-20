@@ -165,26 +165,18 @@ sorted_disks sort_left_to_right(const disk_state& before) {
 
   // check that the input is in alternating format
   assert(before.is_alternating());
-  _swap_count = 0
+  int _swap_count = 0
   disk_state temp = before;
-  size_t i = 0;
-  while(!is_sorted()){
-    do{
-      i++;
-    }
-    while(temp.get(i) == DISK_LIGHT);
-    do{
+  while(!(temp.is_sorted())){
+    for(size_t i = 1; i < temp.total_count(); i++){
       if(!(temp.get(i) == temp.get(i+1))){
         temp.swap(i);
       }
-      i++;
     }
-    while(temp.is_index(i));
     _swap_count++;
-    i = 0;
   }
-
-  return sorted_disks(temp, 0);
+  
+  return sorted_disks(disk_state(temp), _swap_count);
 }
 
 // Algorithm that sorts disks using the lawnmower algorithm.
