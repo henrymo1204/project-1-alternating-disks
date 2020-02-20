@@ -171,9 +171,9 @@ sorted_disks sort_left_to_right(const disk_state& before) {
     for(size_t j = i; j < disk.total_count() - 1; j++){
       if(!(disk.get(j) == disk.get(j+1))){
         disk.swap(j);
+        count++;
       }
     }
-    count++;
   }
 
   return sorted_disks(disk_state(disk), count);
