@@ -103,7 +103,7 @@ public:
     // statement, and then delete these comments.
       return false;
       }
-      color = DARK_DISK;
+      color = DISK_DARK;
     }
     return true;
   }
@@ -148,10 +148,10 @@ sorted_disks sort_left_to_right(const disk_state& before) {
   // TODO: Write code for this function, including rewriting the return
   // statement, and then delete these comments.
 
-  for(int i = 0; i < _after.size() - 1; i++){
+  for(long i = 0; i < _after.size() - 1; i++){
     if(_after[i] != _after[i+1]){
        for(int j = i+1; j < after.size() - 1; i++){
-          if(after[j] != afrer[j+1]){
+          if(after[j] != after[j+1]){
              after.swap(j);
           }
        }
