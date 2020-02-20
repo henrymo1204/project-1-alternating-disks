@@ -170,9 +170,10 @@ sorted_disks sort_left_to_right(const disk_state& before) {
   size_t i = 0;
   size_t j = 0;
   while(is_sorted == false){
-    while(temp.get(i) == DISK_LIGHT){
+    do{
       i++;
     }
+    while(temp.get(i) == DISK_LIGHT);
     do{
       if(!(temp.get(i) == temp.get(i+1)){
         temp.swap(i);
