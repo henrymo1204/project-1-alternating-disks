@@ -167,7 +167,7 @@ sorted_disks sort_left_to_right(const disk_state& before) {
   assert(before.is_alternating());
   int count = 0;
   disk_state disk = before;
-  for(size_t i = 0; i < disk.light_count(); i++){
+  for(size_t i = 1; i < disk.light_count(); i++){
     for(size_t j = i; j < disk.total_count() - 1; j++){
       if(!(disk.get(j) == disk.get(j+1))){
         disk.swap(j);
