@@ -222,14 +222,14 @@ sorted_disks sort_lawnmower(const disk_state& before) {
   assert(before.is_alternating());
   int count = 0;
   disk_state disk = before;
-  for(size_t i = 0; i < disk.light_count(); i++){
+  for(size_t i = 0; i < disk.light_count(); i+=2){
     for(size_t j = 0; j < disk.total_count() - 1; j++){
       if(disk.get(j) == DISK_DARK && disk.get(j+1) == DISK_LIGHT){
         disk.swap(j);
         count++;
       }
     }
-    for(size_t k = disk.total_count(); k > 0; k--){
+    for(size_t k = disk.total_count() - 1; k > 0; k--){
       if(disk.get(k) == DISK_LIGHT && disk.get(k-1) == DISK_DARK){
         disk.swap(k-1);
         count++;
