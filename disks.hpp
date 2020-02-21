@@ -164,18 +164,6 @@ sorted_disks sort_left_to_right(const disk_state& before) {
   // statement, and then delete these comments.
   // check that the input is in alternating format
   assert(before.is_alternating());
-  /*
-  int count = 0;
-  disk_state disk = before;
-  for(size_t i = 1; i < disk.light_count(); i++){
-    for(size_t j = i; j < disk.total_count() - 1; j++){
-      if(!(disk.get(j) == disk.get(j+1))){
-        disk.swap(j);
-        count++;
-      }
-    }
-  }
-  */
   
   int count = 0;
   disk_state disk = before;
@@ -196,28 +184,6 @@ sorted_disks sort_lawnmower(const disk_state& before) {
   // TODO: Write code for this function, including rewriting the return
   // statement, and then delete these comments.
   // check that the input is in alternating format
-  /*
-  int count = 0;
-  assert(before.is_alternating());
-  disk_state disk = before;
-  size_t temp = 1;
-  for(size_t i = 1; i < disk.light_count(); i+=2){
-      for(size_t j = temp;j < disk.total_count() - 1; j++){
-        if(!(disk.get(j) == disk.get(j+1))){
-          disk.swap(j);
-          count ++;
-          temp = j;
-        }
-      }
-      for(size_t k = temp; k > 0; k--){
-        if(!(disk.get(k) == disk.get(k-1))){
-          disk.swap(k-1);
-          count ++;
-          temp = k;
-        }
-    }
-  }
-  */
   
   assert(before.is_alternating());
   int count = 0;
