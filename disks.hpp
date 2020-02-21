@@ -162,7 +162,6 @@ public:
 sorted_disks sort_left_to_right(const disk_state& before) {
   // TODO: Write code for this function, including rewriting the return
   // statement, and then delete these comments.
-
   // check that the input is in alternating format
   assert(before.is_alternating());
   int count = 0;
@@ -202,11 +201,8 @@ sorted_disks sort_lawnmower(const disk_state& before) {
           count ++;
           temp = k;
         }
-      //reverse = false;
-      //}
     }
   }
-
     // TODO
     return sorted_disks(disk_state(disk), count);
 
