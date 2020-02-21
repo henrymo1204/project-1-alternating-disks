@@ -187,22 +187,20 @@ sorted_disks sort_lawnmower(const disk_state& before) {
   int count = 0;
   assert(before.is_alternating());
   disk_state disk = before;
-  //bool reverse = false;
-  for(size_t i = 1; i < disk.light_count(); i++){
-    //if (!reverse){
-      for(size_t i = 1;i < disk.total_count() - 1; i++){
-        if(!(disk.get(i) == disk.get(i+1))){
-          disk.swap(i);
+  size_t temp = 1;
+  for(size_t i = 1; i < disk.light_count(); i+=2){
+      for(size_t j = temp;j < disk.total_count() - 1; j++){
+        if(!(disk.get(j) == disk.get(j+1))){
+          disk.swap(j);
           count ++;
+          temp = j;
         }
       }
-      //reverse = true;
-    //}
-    //else if (reverse){
-      for(size_t i = disk.total_count() - 1;i > 0; i--){
-        if(disk.get(i) == disk.get(i-1)){
-          disk.swap(i-1);
+      for(size_t k = temp; k > 0; k--){
+        if(!(disk.get(k) == disk.get(k-1))){
+          disk.swap(k-1);
           count ++;
+          temp = k;
         }
       //reverse = false;
       //}
