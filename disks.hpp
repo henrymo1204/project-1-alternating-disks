@@ -160,16 +160,14 @@ public:
 
 // Algorithm that sorts disks using the left-to-right algorithm.
 sorted_disks sort_left_to_right(const disk_state& before) {
-  // TODO: Write code for this function, including rewriting the return
-  // statement, and then delete these comments.
   // check that the input is in alternating format
   assert(before.is_alternating());
   
   int count = 0;
   disk_state disk = before;
-  for(size_t i = 0; i < disk.light_count(); i++){
-    for(size_t j = 0; j < disk.total_count() - 1; j++){
-      if(disk.get(j) == DISK_DARK && disk.get(j + 1) == DISK_LIGHT){
+  for(size_t i = 0; i < disk.light_count(); i++){//from index 0 to index n/2
+    for(size_t j = 0; j < disk.total_count() - 1; j++){//from index 0 to index n-1
+      if(disk.get(j) == DISK_DARK && disk.get(j + 1) == DISK_LIGHT){//checking if the left side is dark disk and the right side is light disk
         disk.swap(j);
         count++;
       }
@@ -188,15 +186,15 @@ sorted_disks sort_lawnmower(const disk_state& before) {
   assert(before.is_alternating());
   int count = 0;
   disk_state disk = before;
-  for(size_t i = 0; i < disk.light_count(); i+=2){
-    for(size_t j = 0; j < disk.total_count() - 1; j++){
-      if(disk.get(j) == DISK_DARK && disk.get(j+1) == DISK_LIGHT){
+  for(size_t i = 0; i < disk.light_count(); i+=2){//from index 0 to index n/2, increment by 2
+    for(size_t j = 0; j < disk.total_count() - 1; j++){//from index 0 to index n-1
+      if(disk.get(j) == DISK_DARK && disk.get(j+1) == DISK_LIGHT){//check if the left disk is dark disk and right disk is light disk
         disk.swap(j);
         count++;
       }
     }
-    for(size_t k = disk.total_count() - 1; k > 0; k--){
-      if(disk.get(k) == DISK_LIGHT && disk.get(k-1) == DISK_DARK){
+    for(size_t k = disk.total_count() - 1; k > 0; k--){//from index n to index 1
+      if(disk.get(k) == DISK_LIGHT && disk.get(k-1) == DISK_DARK){//check if the left disk is light disk and the right disk is dark disk
         disk.swap(k-1);
         count++;
       }
