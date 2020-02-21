@@ -229,7 +229,7 @@ sorted_disks sort_lawnmower(const disk_state& before) {
         count++;
       }
     }
-    for(size k = disk.total_count(); k > 0; k++){
+    for(size_t k = disk.total_count(); k > 0; k++){
       if(disk.get(k) == DISK_LIGHT && disk.get(k-1) == DISK_DARK){
         disk.swap(k-1);
         count++;
