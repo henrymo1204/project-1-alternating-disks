@@ -183,6 +183,7 @@ sorted_disks sort_left_to_right(const disk_state& before) {
     for(size_t j = 0; j < disk.total_count() - 1; j++){
       if(disk.get(j) == DISK_DARK && disk.get(j + 1) == DISK_LIGHT){
         disk.swap(j);
+        count++;
       }
     }
   }
