@@ -164,6 +164,7 @@ sorted_disks sort_left_to_right(const disk_state& before) {
   // statement, and then delete these comments.
   // check that the input is in alternating format
   assert(before.is_alternating());
+  /*
   int count = 0;
   disk_state disk = before;
   for(size_t i = 1; i < disk.light_count(); i++){
@@ -171,6 +172,17 @@ sorted_disks sort_left_to_right(const disk_state& before) {
       if(!(disk.get(j) == disk.get(j+1))){
         disk.swap(j);
         count++;
+      }
+    }
+  }
+  */
+  
+  int count = 0;
+  disk_state disk = before;
+  for(size_t i = 0; i < disk.light_count(); i++){
+    for(size_t j = 0; j < disk.total_count() - 1; j++){
+      if(disk.get(j) == DISK_DARK && disk.get(j + 1) == DISK_LIGHT){
+        disk.swap(j)
       }
     }
   }
